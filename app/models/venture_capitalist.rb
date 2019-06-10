@@ -24,5 +24,8 @@ class VentureCapitalist
 # returns an array of all venture capitalists
 # VentureCapitalist.tres_commas_club
 # returns an array of all venture capitalists in the Trés Commas club (they have more then 1,000,000,000 total_worth)
+    def self.tres_commas_club
+        @@all.select {|venture_capitalist| venture_capitalist.total_worth > 1000000000}
+    end
 
 end

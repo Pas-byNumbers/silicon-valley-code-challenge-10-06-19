@@ -60,6 +60,15 @@ end
     end
 # Startup#total_funds
 # Returns the total sum of investments that the startup has gotten
+    def total_funds
+        total = nil
+        FundingRound.all.each do |funding|
+             funding.startup == self
+                total += funding.investment
+            end
+        end
+        return total
+    end
 # Startup#investors
 # Returns a unique array of all the venture capitalists that have invested in this company
 # Startup#big_investors

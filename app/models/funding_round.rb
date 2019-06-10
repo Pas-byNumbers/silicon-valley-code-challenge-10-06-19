@@ -10,7 +10,7 @@ class FundingRound
         @startup = startup
         @venture_capitalist = venture_capitalist
         @type = type
-        @investment = investment
+        @investment = investment.to_f
         @@all << self
     end
 

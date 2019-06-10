@@ -47,4 +47,22 @@ end
         @@all.map {|startup| startup.domain}
     end
 
+#     Startup#sign_contract
+# given a venture capitalist object, type of investment (as a string), and the amount invested (as a float), creates a new funding round and associates it with that startup and venture capitalist.
+    def sign_contract(venture_capitalist: ,type: , investment:)
+
+        new_fund = FundingRound.new(startup: self, venture_capitalist: venture_capitalist, type: type, investment: investment)
+    end
+# Startup#num_funding_rounds
+# Returns the total number of funding rounds that the startup has gotten
+    def num_funding_rounds
+        FundingRound.all.select {|funding| funding.startup == self }.count
+    end
+# Startup#total_funds
+# Returns the total sum of investments that the startup has gotten
+# Startup#investors
+# Returns a unique array of all the venture capitalists that have invested in this company
+# Startup#big_investors
+# Returns a unique array of all the venture capitalists that have invested in this company and are in the Trés Commas club
+
 end

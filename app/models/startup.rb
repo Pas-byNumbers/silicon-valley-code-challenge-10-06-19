@@ -17,6 +17,8 @@ class Startup
         @@all
     end
 
+    
+
 #     Startup#name
 # returns a string that is the startup's name
 # Startup#founder
@@ -27,11 +29,22 @@ class Startup
 # Once a startup is created, the domain cannot be changed.
 # Startup#pivot
 # given a string of a domain and a string of a name, change the domain and name of the startup
+def pivot(domain: ,name: )
+    @domain = domain
+    @name = name
+end
 # Startup.all
 # should return all of the startup instances
 # Startup.find_by_founder
 # given a string of a founder's name, returns the first startup whose founder's name matches
+    def self.find_by_founder(founder_name)
+        @@all.find {|startup| startup.founder == founder_name}
+
+    end
 # Startup.domains
 # should return an array of all of the different startup domains
+    def self.domains
+        @@all.map {|startup| startup.domain}
+    end
 
 end
